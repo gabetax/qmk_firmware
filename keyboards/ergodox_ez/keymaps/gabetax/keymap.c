@@ -69,7 +69,7 @@ uint16_t alt_tab_timer = 0;     // we will be using them soon.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(2),                                          TG(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(2),                                          TG(1),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           ALT_TAB,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
     LGUI_T(KC_ESCAPE),KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                                                           KC_H,           KC_J,           KC_K,           KC_L,           KC_SCOLON,      LGUI_T(KC_QUOTE),
     KC_LSHIFT,      LCTL_T(KC_Z),   LALT_T(KC_X),   KC_C,           KC_V,           KC_B,           TT(4),                                          MO(3),          KC_N,           KC_M,           KC_COMMA,       RALT_T(KC_DOT), RCTL_T(KC_SLASH),KC_RSHIFT,
