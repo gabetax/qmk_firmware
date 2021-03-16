@@ -12,3 +12,7 @@
 
 #define FIRMWARE_VERSION u8"Qa34z/QmV4z"
 #define RGB_MATRIX_STARTUP_SPD 60
+
+// https://beta.docs.qmk.fm/using-qmk/software-features/tap_hold#permissive-hold
+// Prevent "zc" when I try to ^C
+#define PERMISSIVE_HOLD
