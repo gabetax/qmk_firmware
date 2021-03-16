@@ -32,7 +32,10 @@ enum preonic_keycodes {
   COLEMAK_DHM,
   LOWER,
   RAISE,
-  BACKLIT
+  BACKLIT,
+  RRKT,
+  LSTB,
+  RSTB,
 };
 
 #define VIM_A CMD_T(KC_RIGHT)
@@ -148,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, _______, _______, KC_F12,
   KC_DEL,  KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_PIPE, KC_COLN, KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, KC_BSLS,
-  _______, KC_TILD, KC_GRV,  KC_LBRC, KC_RBRC, KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
+  _______, KC_TILD, KC_GRV,  KC_LBRC, KC_RBRC, _______, _______, RSTB,    _______, RRKT,    _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
@@ -228,6 +231,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             #ifdef __AVR__
             writePinHigh(E6);
             #endif
+          }
+          return false;
+          break;
+        case RRKT:
+          if (record->event.pressed) {
+            SEND_STRING("=>");
+          }
+          return false;
+          break;
+        case RSTB:
+          if (record->event.pressed) {
+            SEND_STRING("->");
+          }
+          return false;
+          break;
+        case LSTB:
+          if (record->event.pressed) {
+            SEND_STRING("<-");
           }
           return false;
           break;
