@@ -39,6 +39,8 @@ enum preonic_keycodes {
 };
 
 #define NUMPAD LT(_NUMPAD, RGB_MOD)
+#define NAVBACK LCMD(LSFT(KC_LBRC))
+#define NAVFORW LCMD(LSFT(KC_RBRC))
 #define VIM_A LCMD(KC_RIGHT)
 #define VIM_B LALT(KC_LEFT)
 // #define VIM_E CMD_T(KC_RIGHT), KC_LEFT
@@ -145,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      | LnEnd|      |      |      |      | Left | Down |  Up  |Right |ApndLn|      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |  Del |      | SelLn|Bak Wd|      |      |      |      |      |      |
+ * |      |      |  Del |      | SelLn|Bak Wd|      | Nav< | Nav> |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -155,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, _______, VIM_W,   _______, _______, _______, _______, _______, VIM_I,   _______, _______, _______,
   _______, VIM_A,   _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-  _______, _______, KC_DEL,  _______, VIM_B,   VIM_B,   _______, _______, _______, _______, _______, _______,
+  _______, _______, KC_DEL,  _______, VIM_B,   VIM_B,   _______, NAVBACK, NAVFORW, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
 ),
 
