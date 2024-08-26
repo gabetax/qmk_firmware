@@ -151,10 +151,22 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
+/*
+This is disabled, since it prevents direct `MO(3)` use.
+
+This is covered in the documentation at https://github.com/qmk/qmk_firmware/blob/master/docs/ref_functions.md#update_tri_layer_statestate-x-y-z
+
+> You cannot access the z layer without having x and y layers on, since if you
+> try to activate just layer z, it will run this code and turn off layer z
+> before you could use it.
+
+Instead of MO(1) + MO(2), we'll implement MO(3) directly in the keymap.
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     state = update_tri_layer_state(state, _RAISE, _LOWER, _ADJUST);
     return state;
 }
+*/
 
 static void render_logo(void) {
     static const char PROGMEM logo[] = {
